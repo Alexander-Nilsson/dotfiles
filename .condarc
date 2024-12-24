@@ -1,0 +1,9 @@
+channels:
+  - conda-forge
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+auto_activate_base: false
+
+envs_dirs:
+  - /home/alexander/.conda/envs
+env_prompt: '({name}) '
