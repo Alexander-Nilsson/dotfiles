@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 iatest=$(expr index "$-" i)
 
@@ -631,3 +632,5 @@ export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bi
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
+
+eval "$(thefuck --alias)"
