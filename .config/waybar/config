@@ -1,25 +1,16 @@
 {
-    "modules-left": ["hyprland/workspaces", "hyprland/mode"],
-    "modules-center": ["clock", "idle_inhibitor"],
-    "modules-right": ["tray", "custom/scratchpad-indicator", "pulseaudio", "custom/power"],
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["custom/bluetooth", "pulseaudio","network", "custom/power"],
 
-    "hyprland/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname} ",
-        "format-disconnected": "", 
-        "max-length": 50,
+       //"format-ethernet": "{ifname} ",
+       // "format-disconnected": "", 
+       // "max-length": 50,
         "on-click": "kitty -e 'nmtui'"
     },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        },
-    },
+  
     "tray": {
         "icon-size": 15,
         "spacing": 10
@@ -31,11 +22,11 @@
     },
     "pulseaudio": {
         "format": "{volume}% {icon} ",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": "0% {icon} ",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+       // "format-bluetooth": "{volume}% {icon} {format_source}",
+       // "format-bluetooth-muted": " {icon} {format_source}",
+       // "format-muted": "0% {icon} ",
+       // "format-source": "{volume}% ",
+       // "format-source-muted": "",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -51,13 +42,10 @@
 		"format": " ",
 		"on-click": "wlogout"
 	},
-    "custom/scratchpad-indicator": {
-        "format-text": "{}hi",
-        "return-type": "json",
-        "interval": 3,
-        "exec": "~/.local/bin/scratchpad-indicator 2> /dev/null",
-        "exec-if": "exit 0",
-        "on-click": "swaymsg 'scratchpad show'",
-        "on-click-right": "swaymsg 'move scratchpad'"
+
+    "custom/bluetooth": {
+        "format": "",  // Bluetooth icon; requires a Nerd Font
+        "tooltip": false,
+        "on-click": "blueman-manager"
     }
 }
