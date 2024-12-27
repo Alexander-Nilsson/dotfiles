@@ -1,5 +1,5 @@
 
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 iatest=$(expr index "$-" i)
 
 #######################################################
@@ -10,15 +10,15 @@ iatest=$(expr index "$-" i)
 #fi
 
 # Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+if [ -f /etc/zshrc ]; then
+	. /etc/zshrc
 fi
 
-# Enable bash programmable completion features in interactive shells
-if [ -f /usr/share/bash-completion/bash_completion ]; then
-	. /usr/share/bash-completion/bash_completion
-elif [ -f /etc/bash_completion ]; then
-	. /etc/bash_completion
+# Enable zsh programmable completion features in interactive shells
+if [ -f /usr/share/zsh-completion/zsh_completion ]; then
+	. /usr/share/zsh-completion/zsh_completion
+elif [ -f /etc/zsh_completion ]; then
+	. /etc/zsh_completion
 fi
 
 #######################################################
@@ -39,7 +39,7 @@ export HISTCONTROL=erasedups:ignoredups:ignorespace
 # Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
 shopt -s checkwinsize
 
-# Causes bash to append to history instead of overwriting it so if you start a new terminal, you have old session history
+# Causes zsh to append to history instead of overwriting it so if you start a new terminal, you have old session history
 shopt -s histappend
 PROMPT_COMMAND='history -a'
 
@@ -118,11 +118,11 @@ alias web='cd /var/www/html'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Edit this .bashrc file
-alias ebrc='edit ~/.bashrc'
+# Edit this .zshrc file
+alias ebrc='edit ~/.zshrc'
 
-# Show help for this .bashrc file
-alias hlp='less ~/.bashrc_help'
+# Show help for this .zshrc file
+alias hlp='less ~/.zshrc_help'
 
 # alias to show the date
 alias da='date "+%Y-%m-%d %A %T %Z"'
@@ -235,6 +235,11 @@ alias clickpaste='sleep 3; xdotool type "$(xclip -o -selection clipboard)"'
 # KITTY - alias to be able to use kitty features when connecting to remote servers(e.g use tmux on remote server)
 
 alias kssh="kitty +kitten ssh"
+
+alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
+
+
+
 
 # alias to cleanup unused docker containers, images, networks, and volumes
 
@@ -463,20 +468,20 @@ ver() {
     esac
 }
 
-# Automatically install the needed support files for this .bashrc file
-install_bashrc_support() {
+# Automatically install the needed support files for this .zshrc file
+install_zshrc_support() {
 	local dtype
 	dtype=$(distribution)
 
 	case $dtype in
 		"redhat")
-			sudo yum install multitail tree zoxide trash-cli fzf bash-completion fastfetch
+			sudo yum install multitail tree zoxide trash-cli fzf zsh-completion fastfetch
 			;;
 		"suse")
-			sudo zypper install multitail tree zoxide trash-cli fzf bash-completion fastfetch
+			sudo zypper install multitail tree zoxide trash-cli fzf zsh-completion fastfetch
 			;;
 		"debian")
-			sudo apt-get install multitail tree zoxide trash-cli fzf bash-completion
+			sudo apt-get install multitail tree zoxide trash-cli fzf zsh-completion
 			# Fetch the latest fastfetch release URL for linux-amd64 deb file
 			FASTFETCH_URL=$(curl -s https://api.github.com/repos/fastfetch-cli/fastfetch/releases/latest | grep "browser_download_url.*linux-amd64.deb" | cut -d '"' -f 4)
 
@@ -487,7 +492,7 @@ install_bashrc_support() {
 			sudo apt-get install /tmp/fastfetch_latest_amd64.deb
 			;;
 		"arch")
-			sudo paru multitail tree zoxide trash-cli fzf bash-completion fastfetch
+			sudo paru multitail tree zoxide trash-cli fzf zsh-completion fastfetch
 			;;
 		"slackware")
 			echo "No install support for Slackware"
@@ -630,8 +635,8 @@ fi
 
 export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bin:/.local/share/flatpak/exports/bin"
 
-eval "$(starship init bash)"
-eval "$(zoxide init bash)"
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 
 eval "$(thefuck --alias)"
 
