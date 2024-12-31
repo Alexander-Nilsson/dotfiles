@@ -1,0 +1,1 @@
+{"clipboardHistory":[{"value":"jq 'del(.clipboardHistory[0])' \"$json_file\" \u003e \"$json_file.tmp\" \u0026\u0026 mv \"$json_file.tmp\" \"$json_file\"","recorded":"2024-12-31 13:44:58.304404121","filePath":"null","pinned":false}]}
