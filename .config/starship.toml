@@ -6,7 +6,6 @@ $username\
 $directory\
 [](fg:#434C5E bg:#4C566A)\
 $git_branch\
-$git_status\
 [](fg:#4C566A bg:#86BBD8)\
 $c\
 $elixir\
@@ -33,7 +32,8 @@ command_timeout = 5000
 show_always = true
 style_user = "bg:#3B4252"
 style_root = "bg:#3B4252"
-format = '[$user ]($style)'
+#format = '[$user ]($style)'
+format =  '[ ]($style)'  
 
 [directory]
 style = "bg:#434C5E"
@@ -78,10 +78,11 @@ format = '[ $symbol ($version) ]($style)'
 symbol = ""
 style = "bg:#4C566A"
 format = '[ $symbol $branch ]($style)'
+ignore_branches = ["main","master"]
 
-[git_status]
-style = "bg:#4C566A"
-format = '[$all_status$ahead_behind ]($style)'
+#[git_status]
+#style = "bg:#4C566A"
+#format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
 symbol = " "
