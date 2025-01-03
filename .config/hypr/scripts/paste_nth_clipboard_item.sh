@@ -30,7 +30,11 @@ fi
 # Copy the extracted value to the system clipboard using wl-copy
 echo -n "$value" | wl-copy
 
-sleep 0.5 # without this the remove step happens before the index is updated
+# todo paste
+#wl-paste | wl-copy
+
+sleep 0.1 # without this the remove step happens before the index is updated
+#wl-paste | xdotool key ctrl+shift+v
 
 # Create a temporary file
 temp_file=$(mktemp)
@@ -39,11 +43,13 @@ temp_file=$(mktemp)
 if jq 'del(.clipboardHistory[0])' "$json_file" > "$temp_file"; then
   # If successful, move the temporary file to overwrite the original JSON file
   mv "$temp_file" "$json_file"
-  echo "Copied item at index $index to the clipboard and removed index 0 from the history."
+  #echo "Copied item at index $index to the clipboard and removed index 0 from the history."
 else
   # If jq fails, remove the temporary file and print an error message
   rm "$temp_file"
   echo "Error: Failed to update the JSON file."
   exit 1
 fi
+
+#paste item
 
