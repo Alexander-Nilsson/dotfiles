@@ -1,7 +1,7 @@
 {
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/bluetooth", "pulseaudio","network", "custom/power"],
+    "modules-right": ["custom/bluetooth", "battery", "cpu", "pulseaudio","network", "custom/power"],
 
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) ",
@@ -23,11 +23,11 @@
     },
     "pulseaudio": {
         "format": "{volume}% {icon} ",
-       // "format-bluetooth": "{volume}% {icon} {format_source}",
-       // "format-bluetooth-muted": " {icon} {format_source}",
-       // "format-muted": "0% {icon} ",
-       // "format-source": "{volume}% ",
-       // "format-source-muted": "",
+        #"format-bluetooth": "{volume}% {icon} {format_source}",
+        #"format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "0% {icon} ",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -43,10 +43,26 @@
 		"format": " ",
 		"on-click": "wlogout"
 	},
+
   "custom/bluetooth": {
     "exec": "bluetoothctl show | grep 'Powered: yes' > /dev/null && (bluetoothctl info | grep 'Connected: yes' > /dev/null && echo '󰂱' || echo '󰂯') || echo '󰂲'",
     "interval": 5,
     "tooltip": false,
     "on-click": "blueman-manager"
-  }
+  },
+  
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-icons": ["", "", "", "", ""],
+    "interval": 30,
+    "tooltip": true
+    },
+
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": false,
+    "interval": 5
+    }
 }

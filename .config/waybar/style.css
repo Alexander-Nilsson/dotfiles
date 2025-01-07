@@ -5,7 +5,10 @@
     color: #ffffff;
     border-radius: 20px;
 }
-
+.icon {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900; /* Ensure the correct weight for icons */
+}
 window {
 	/*font-weight: bold;*/
 }
