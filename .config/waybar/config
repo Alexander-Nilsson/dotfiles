@@ -1,51 +1,55 @@
 {
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": ["custom/bluetooth", "battery", "cpu", "pulseaudio","network", "custom/power"],
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/bluetooth", "battery", "cpu", "pulseaudio","network", "custom/power"],
 
-    "network": {
+  "network": {
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ifname} ",
         "format-disconnected": "", 
         "max-length": 50,
         "on-click": "kitty -e 'nmtui'"
 	    //"on-click": "plasmawindowed org.kde.plasma.networkmanagement"
-    }, 
+  }, 
   
-    "tray": {
+  "tray": {
         "icon-size": 15,
         "spacing": 10
+  },
+
+  "clock": {
+    //"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": " {:%Y-%m-%d} "
+		//"on-click": "gnome-calendar"
+  },
+
+  "pulseaudio": {
+    "format": "{volume}% {icon} ",
+    //"format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-bluetooth-muted": " {icon}",
+    "format-muted": "0% {icon} ",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
     },
-    "clock": {
-        // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        // "format-alt": "{:%Y-%m-%d}"
-		"on-click": "gnome-calendar"
-    },
-    "pulseaudio": {
-        "format": "{volume}% {icon} ",
-        #"format-bluetooth": "{volume}% {icon} {format_source}",
-        #"format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": "0% {icon} ",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-    },
+    "on-click": "pavucontrol"
+  },
+
 	"custom/power": {
 		"format": " ",
 		"on-click": "wlogout"
 	},
 
   "custom/bluetooth": {
-    "exec": "bluetoothctl show | grep 'Powered: yes' > /dev/null && (bluetoothctl info | grep 'Connected: yes' > /dev/null && echo '󰂱' || echo '󰂯') || echo '󰂲'",
+    "exec": "bluetoothctl show | grep 'Powered: yes' > /dev/null && (bluetoothctl info | grep 'Connected: yes' > /dev/null && echo ' 󰂱' || echo ' 󰂯') || echo ' 󰂲'",
     "interval": 5,
     "tooltip": false,
     "on-click": "blueman-manager"
@@ -64,5 +68,5 @@
     "format": "{usage}% ",
     "tooltip": false,
     "interval": 5
-    }
+  }
 }

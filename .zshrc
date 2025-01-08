@@ -15,6 +15,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit light olets/zsh-abbr
 
 # Add in snippets
 zinit snippet OMZL::git.zsh
@@ -90,31 +91,6 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
-
-#######################################################
-# MACHINE SPECIFIC ALIAS'S
-#######################################################
-
-# Alias's for SSH
-# alias SERVERNAME='ssh YOURWEBSITE.com -l USERNAME -p PORTNUMBERHERE'
-
-# Alias's to change the directory
-alias web='cd /var/www/html'
-
-# Alias's to mount ISO files
-# mount -o loop /home/NAMEOFISO.iso /home/ISOMOUNTDIR/
-# umount /home/NAMEOFISO.iso
-# (Both commands done as root only.)
-
-#######################################################
-# GENERAL ALIAS'S
-#######################################################
-# To temporarily bypass an alias, we precede the command with a \
-# EG: the ls command is aliased, but to use the normal ls command you would type \ls
-
-
-# Show help for this .bashrc file
-alias hlp='less ~/.bashrc_help'
 
 # alias to show the date
 alias da='date "+%Y-%m-%d %A %T %Z"'
@@ -231,6 +207,11 @@ alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
 alias invim='nvim $(fzf -m --preview="bat --color=always {}")'
 alias in_vim='nvim $(fzf -m --preview="bat --color=always {}")'
 
+# abbr for writing out git commit + cursor position  
+export ABBR_SET_EXPANSION_CURSOR=1
+export ABBR_AUTOLOAD=1
+
+
 #######################################################
 # SPECIAL FUNCTIONS
 #######################################################
@@ -312,18 +293,6 @@ up() {
   fi
   cd $d
 }
-
-# Automatically do an ls after each cd, z, or zoxide
-cd() {
-  if [ -n "$1" ]; then
-    builtin cd "$@" && ls
-  else
-    builtin cd ~ && ls
-  fi
-}
-
-
-
 
 
 export PATH="$HOME/.local/bin:$PATH"

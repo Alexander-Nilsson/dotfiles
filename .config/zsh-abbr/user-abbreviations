@@ -1,0 +1,2 @@
+abbr "gc"="git commit -m \"%\""
+abbr "git commit"="git commit -m \"%\""
