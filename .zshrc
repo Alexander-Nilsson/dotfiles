@@ -63,9 +63,7 @@ alias c='clear'
 
 # Set the default editor
 export EDITOR=nvim
-export VISUAL=nvim
-alias spico='sudo pico'
-alias snano='sudo nano'
+export VISUAL=nvim 
 alias vim='nvim'
 
 # To have colors for ls and all grep commands such as grep, egrep and zgrep
