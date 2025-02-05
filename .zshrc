@@ -302,3 +302,6 @@ eval "$(fzf --zsh)"
 # eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
 eval $(thefuck --alias)
+
+#autojump integration with zsh  
+[[ -s /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh
