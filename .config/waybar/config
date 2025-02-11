@@ -56,13 +56,28 @@
   },
   
   "battery": {
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
-    "format-icons": ["", "", "", "", ""],
+    // Which battery to monitor (often "BAT0" or "BAT1")
+    "bat": "BAT0",
+
+    // General refresh interval, in seconds
     "interval": 30,
-    "tooltip": true
-    },
+    "tooltip": true,
+
+    // How the text is displayed
+    "format": "{capacity}% {icon}",
+    "format-discharging": "{capacity}% {icon}  ({time})",
+    "format-charging": "{capacity}%  ({time})",
+    "format-plugged": "{capacity}% ",
+    "format-time": "{H}h {M}m",
+    "format-icons": ["", "", "", "", ""],
+
+    // Battery thresholds
+    "low-threshold": 15,
+    "critical-threshold": 5,
+
+    // Turn on notifications
+    "notify": true
+  },
 
   "cpu": {
     "format": "{usage}% ",
