@@ -60,7 +60,7 @@
     "bat": "BAT0",
 
     // General refresh interval, in seconds
-    "interval": 30,
+    "interval": 120,
     "tooltip": true,
 
     // How the text is displayed
