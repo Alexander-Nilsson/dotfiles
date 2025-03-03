@@ -294,7 +294,8 @@ up() {
 
 
 export PATH="$HOME/.local/bin:$PATH"
-
+export PATH=/opt/miniconda3/bin:$PATH
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 # Shell integrations
 eval "$(fzf --zsh)"
 # eval "$(zoxide init --cmd cd zsh)"
@@ -303,3 +304,4 @@ eval $(thefuck --alias)
 
 #autojump integration with zsh  
 [[ -s /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh
+. /opt/miniconda3/etc/profile.d/conda.sh
