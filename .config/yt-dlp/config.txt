@@ -1,0 +1,8 @@
+# Set the default download directory
+-P ~/Downloads
+
+# Always download Chinese subtitles when available
+--write-subs
+--sub-lang zh
+--convert-subs srt
+
