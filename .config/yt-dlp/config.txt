@@ -1,8 +1,12 @@
 # Set the default download directory
--P ~/Downloads
+-P ~/Downloads/yt-dlp
+
+# Always download the best quality audio and 360p video
+--format "bestvideo[height<=360]+bestaudio/best[height<=360]"
+
 
 # Always download Chinese subtitles when available
 --write-subs
---sub-lang zh
+--sub-lang zh, zh-Hans, zh-Hant, zh-HK, zh-TW
 --convert-subs srt
 
