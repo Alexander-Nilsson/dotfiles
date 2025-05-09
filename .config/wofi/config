@@ -1,0 +1,5 @@
+mode=drun
+allow_images=true
+prompt=Launch:
+width=50%
+height=40%
