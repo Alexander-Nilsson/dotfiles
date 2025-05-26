@@ -42,6 +42,7 @@ $nodejs\
 $nim\
 $rust\
 [ ](fg:#434C5E)\
+$conda\
 """
 
 
@@ -153,8 +154,7 @@ time_format = "%R" # Hour:Minute Format
 style = "bg:#33658A"
 format = '[ $time ]($style)'
 
-
 [conda]
-symbol = "🅒 "  # You can change this icon to whatever you prefer.
-format = ' ($env) '
+format = '[(\($environment\))  ]($style)'
+style = ''
 ignore_base = false
