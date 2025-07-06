@@ -7,3 +7,4 @@ auto_activate_base: false
 envs_dirs:
   - /home/alexander/.conda/envs
 env_prompt: '({name}) '
+changeps1: false
