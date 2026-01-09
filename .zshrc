@@ -146,3 +146,12 @@ eval $(thefuck --alias)
 
 #autojump integration with zsh  
 [[ -s /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh
+
+# Auto-start logging with script into ~/Documents/logs
+if [ -z "$SCRIPT_LOGGER" ]; then
+    export SCRIPT_LOGGER=1
+    logfile="$HOME/Documents/logs/$(date +%F).log"
+    mkdir -p "$HOME/Documents/logs"
+    exec script -q -a "$logfile"
+fi
+
