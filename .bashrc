@@ -654,3 +654,4 @@ unset __conda_setup
 
 . /opt/miniconda3/etc/profile.d/conda.sh
 . /opt/miniconda3/etc/profile.d/conda.sh
+export PATH="$HOME/.npm-global/bin:$PATH"
