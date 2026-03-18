@@ -1,0 +1,17 @@
+[config]
+reload_gtk_theme = false
+set_wallpaper = false
+
+[templates.waybar]
+input_path = "/home/alexander/.config/matugen/templates/waybar-colors.css"
+output_path = "/home/alexander/.config/waybar/colors.css"
+post_hook = "pkill -SIGUSR2 waybar"
+
+[templates.hyprland]
+input_path = "/home/alexander/.config/matugen/templates/hyprland-colors.conf"
+output_path = "/home/alexander/.config/hypr/colors.conf"
+post_hook = "hyprctl reload"
+
+[templates.rofi]
+input_path = "/home/alexander/.config/matugen/templates/rofi-colors.rasi"
+output_path = "/home/alexander/.config/rofi/colors.rasi"
