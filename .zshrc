@@ -10,17 +10,12 @@ colors
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Define a function that wraps the built-in cd command
-# and then lists the directory contents (including hidden files).
-function cd() {
-  builtin cd "$@" && ls -a
-}
-
 # ── Plugins ────────────────────────────────────────────────────────────────
 zinit wait lucid light-mode for \
     zsh-users/zsh-completions \
     Aloxaf/fzf-tab \
-    olets/zsh-abbr
+    olets/zsh-abbr \
+    zsh-users/zsh-history-substring-search
 
 zinit wait lucid light-mode for \
     zsh-users/zsh-autosuggestions
@@ -41,6 +36,9 @@ bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # History
 HISTSIZE=5000
@@ -64,12 +62,26 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a --color=always $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a --color=always $realpath'
 
+# -------------------------------------------------------
 # Aliases
+# -------------------------------------------------------
+
+# Define a function that wraps the built-in cd command
+# and then lists the directory contents (including hidden files).
+function z() {
+  builtin z "$@" && ls -a
+}
+
+function cd() {
+  builtin cd "$@" && ls -a
+}
+
 alias ls='eza -a --color=auto'
 alias vim='nvim'
 alias c='clear'
 alias grep='rg --color=auto'
 alias j='z'
+alias ji='z -i'
 
 # Set the default editor
 export EDITOR=nvim
@@ -100,7 +112,6 @@ alias apt-get='sudo apt-get'
 alias vi='nvim'
 
 # Change directory aliases
-alias cd=z
 alias home='cd ~'
 alias cd..='cd ..'
 alias ..='cd ..'
@@ -144,5 +155,4 @@ if [ -z "$SCRIPT_LOGGER" ]; then
     exec script -q -a "$logfile"
 fi
 
-export TELEGRAM_BOT_TOKEN="8676137337:AAE7E5JDB04J3D4maCQrJLBzyyHIKn4RdL8"
 export PATH="$HOME/.npm-global/bin:$PATH"
