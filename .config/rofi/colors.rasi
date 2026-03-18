@@ -1,7 +1,7 @@
 * {
-    background:     #121318;
-    background-alt: #121318;
-    foreground:     #e3e1e9;
-    accent:         #b9c3ff;
+    background:     #101417;
+    background-alt: #101417;
+    foreground:     #e0e3e8;
+    accent:         #97ccf8;
     urgent:         #ffb4ab;
 }
