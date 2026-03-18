@@ -1,59 +1,90 @@
 @import "/home/alexander/.config/rofi/colors.rasi"
+* {
+    background-color:               transparent;
+    text-color:                     @foreground;
+    border:                         0px;
+    margin:                         0px;
+    padding:                        0px;
+
+    /* Kill all the default rofi color variables */
+    normal-background:              @background;
+    normal-foreground:              @foreground;
+    alternate-normal-background:    @background;
+    alternate-normal-foreground:    @foreground;
+    selected-normal-background:     @accent;
+    selected-normal-foreground:     @background;
+    urgent-background:              @urgent;
+    urgent-foreground:              @foreground;
+    alternate-urgent-background:    @urgent;
+    selected-urgent-background:     @urgent;
+    active-background:              @background-alt;
+    alternate-active-background:    @background-alt;
+    selected-active-background:     @accent;
+    background-alt:                 @background;
+}
 
 configuration {
-    show-icons:     true;
-    icon-theme:     "Papirus";
-    font:           "Fira Sans 12";
-    drun-display-format: "{name}";
+    show-icons:             true;
+    icon-theme:             "Papirus";
+    font:                   "Monospace 10";
+    drun-display-format:    "{name}";
 }
 
 window {
     background-color:   @background;
     text-color:         @foreground;
-    border:             2px;
+    border:             1px solid;
     border-color:       @accent;
     border-radius:      12px;
-    width:              500px;
-    location:           center;
+    width:              960px;
+    padding:            16px;
 }
 
 mainbox {
-    background-color:   inherit;
-    padding:            10px;
+    background-color:   transparent;
+    children:           [ inputbar, listview ];
+    spacing:            12px;
 }
 
 inputbar {
     children:           [ prompt, entry ];
     background-color:   @background-alt;
     text-color:         @foreground;
-    border:             2px;
+    border:             1px solid;
     border-color:       @accent;
     border-radius:      8px;
-    padding:            8px;
-    margin:             0 0 10px 0;
+    padding:            10px 14px;
 }
 
 prompt {
     text-color:         @accent;
-    padding:            0 6px 0 0;
+    padding:            0 8px 0 0;
 }
 
 entry {
     text-color:         @foreground;
+    placeholder:        "Type to filter...";
+    placeholder-color:  @foreground;
 }
 
 listview {
-    background-color:   inherit;
-    columns:            1;
-    lines:              8;
+    background-color:   transparent;
+    columns:            4;
+    lines:              3;
+    spacing:            10px;
     scrollbar:          false;
+    fixed-height:       false;
+    border:             0px;
 }
 
 element {
-    background-color:   inherit;
+    background-color:   @background-alt;
     text-color:         @foreground;
     border-radius:      8px;
-    padding:            8px 10px;
+    padding:            8px;
+    orientation:        vertical;
+    spacing:            6px;
+    border:             0px;
 }
 
 element selected {
@@ -62,6 +93,14 @@ element selected {
 }
 
 element-icon {
-    size:               24px;
-    padding:            0 8px 0 0;
+    size:               168px;
+    border-radius:      6px;
+    horizontal-align:   0.5;
+}
+
+element-text {
+    horizontal-align:   0.5;
+    vertical-align:     0.5;
+    padding:            2px 0;
+    font:               "Monospace 8";
 }

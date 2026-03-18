@@ -9,7 +9,7 @@ swww query &>/dev/null || {
 }
 
 # Collect images
-mapfile -t WALLS < <(find "$WALLPAPER_DIR" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) | sort)
+mapfile -t WALLS < <(find "$WALLPAPER_DIR" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.gif" \) | shuf)
 
 if [ ${#WALLS[@]} -eq 0 ]; then
   notify-send "Wallpaper Picker" "No wallpapers found in $WALLPAPER_DIR"
