@@ -1,0 +1,7 @@
+* {
+    background:     {{colors.background.default.hex}};
+    background-alt: {{colors.surface.default.hex}};
+    foreground:     {{colors.on_background.default.hex}};
+    accent:         {{colors.primary.default.hex}};
+    urgent:         {{colors.error.default.hex}};
+}

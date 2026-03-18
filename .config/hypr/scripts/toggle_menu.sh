@@ -1,6 +1,6 @@
 #!/bin/bash
-if pgrep -x "wofi" > /dev/null; then
-    pkill -x "wofi"
+if pgrep -x "rofi" >/dev/null; then
+  pkill -x "rofi"
 else
-    wofi --show drun &
+  rofi -show drun &
 fi
