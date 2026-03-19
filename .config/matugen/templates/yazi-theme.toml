@@ -1,0 +1,95 @@
+[manager]
+cwd = { fg = "{{colors.primary.default.hex}}" }
+
+hovered         = { fg = "{{colors.background.default.hex}}", bg = "{{colors.primary.default.hex}}" }
+preview_hovered = { underline = true }
+
+find_keyword  = { fg = "{{colors.tertiary.default.hex}}", bold = true }
+find_position = { fg = "{{colors.primary.default.hex}}", bg = "reset", bold = true }
+
+marker_copied  = { fg = "{{colors.tertiary.default.hex}}", bg = "{{colors.tertiary.default.hex}}" }
+marker_cut     = { fg = "{{colors.error.default.hex}}",    bg = "{{colors.error.default.hex}}" }
+marker_marked  = { fg = "{{colors.secondary.default.hex}}", bg = "{{colors.secondary.default.hex}}" }
+marker_selected = { fg = "{{colors.primary.default.hex}}", bg = "{{colors.primary.default.hex}}" }
+
+tab_active   = { fg = "{{colors.background.default.hex}}", bg = "{{colors.primary.default.hex}}" }
+tab_inactive = { fg = "{{colors.on_background.default.hex}}", bg = "{{colors.surface.default.hex}}" }
+tab_width    = 1
+
+count_copied   = { fg = "{{colors.background.default.hex}}", bg = "{{colors.tertiary.default.hex}}" }
+count_cut      = { fg = "{{colors.background.default.hex}}", bg = "{{colors.error.default.hex}}" }
+count_selected = { fg = "{{colors.background.default.hex}}", bg = "{{colors.primary.default.hex}}" }
+
+border_symbol = "│"
+border_style  = { fg = "{{colors.surface_variant.default.hex}}" }
+
+[status]
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "{{colors.surface.default.hex}}", bg = "{{colors.surface.default.hex}}" }
+
+mode_normal = { fg = "{{colors.background.default.hex}}", bg = "{{colors.primary.default.hex}}", bold = true }
+mode_select = { fg = "{{colors.background.default.hex}}", bg = "{{colors.tertiary.default.hex}}", bold = true }
+mode_unset  = { fg = "{{colors.background.default.hex}}", bg = "{{colors.secondary.default.hex}}", bold = true }
+
+progress_label  = { fg = "{{colors.on_background.default.hex}}", bold = true }
+progress_normal = { fg = "{{colors.primary.default.hex}}", bg = "{{colors.surface.default.hex}}" }
+progress_error  = { fg = "{{colors.error.default.hex}}", bg = "{{colors.surface.default.hex}}" }
+
+permissions_t = { fg = "{{colors.primary.default.hex}}" }
+permissions_r = { fg = "{{colors.tertiary.default.hex}}" }
+permissions_w = { fg = "{{colors.error.default.hex}}" }
+permissions_x = { fg = "{{colors.secondary.default.hex}}" }
+permissions_s = { fg = "{{colors.surface_variant.default.hex}}" }
+
+[input]
+border   = { fg = "{{colors.primary.default.hex}}" }
+title    = { fg = "{{colors.primary.default.hex}}" }
+value    = { fg = "{{colors.on_background.default.hex}}" }
+selected = { fg = "{{colors.background.default.hex}}", bg = "{{colors.primary.default.hex}}" }
+
+[completion]
+border   = { fg = "{{colors.primary.default.hex}}" }
+active   = { fg = "{{colors.background.default.hex}}", bg = "{{colors.primary.default.hex}}" }
+inactive = { fg = "{{colors.on_background.default.hex}}", bg = "{{colors.surface.default.hex}}" }
+
+[tasks]
+border  = { fg = "{{colors.primary.default.hex}}" }
+title   = { fg = "{{colors.primary.default.hex}}" }
+hovered = { fg = "{{colors.primary.default.hex}}", underline = true }
+
+[which]
+mask            = { bg = "{{colors.surface.default.hex}}" }
+cand            = { fg = "{{colors.primary.default.hex}}" }
+rest            = { fg = "{{colors.on_background.default.hex}}" }
+desc            = { fg = "{{colors.secondary.default.hex}}" }
+separator       = "  "
+separator_style = { fg = "{{colors.surface_variant.default.hex}}" }
+
+[notify]
+title_info  = { fg = "{{colors.primary.default.hex}}" }
+title_warn  = { fg = "{{colors.tertiary.default.hex}}" }
+title_error = { fg = "{{colors.error.default.hex}}" }
+
+icon_info  = ""
+icon_warn  = ""
+icon_error = ""
+
+[spot]
+border = { fg = "{{colors.primary.default.hex}}" }
+title  = { fg = "{{colors.primary.default.hex}}" }
+
+[confirm]
+border  = { fg = "{{colors.primary.default.hex}}" }
+title   = { fg = "{{colors.primary.default.hex}}" }
+content = { fg = "{{colors.on_background.default.hex}}" }
+list    = { fg = "{{colors.secondary.default.hex}}" }
+
+btn_yes     = { fg = "{{colors.background.default.hex}}", bg = "{{colors.primary.default.hex}}" }
+btn_no      = { fg = "{{colors.background.default.hex}}", bg = "{{colors.error.default.hex}}" }
+btn_labels  = [ "  Yes  ", "  No  " ]
+
+[pick]
+border   = { fg = "{{colors.primary.default.hex}}" }
+active   = { fg = "{{colors.background.default.hex}}", bg = "{{colors.primary.default.hex}}" }
+inactive = { fg = "{{colors.on_background.default.hex}}", bg = "{{colors.surface.default.hex}}" }
