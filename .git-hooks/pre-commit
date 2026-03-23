@@ -1,0 +1,6 @@
+#!/bin/sh
+gitleaks protect --staged -v --config ~/.gitleaks.toml
+if [ $? -ne 0 ]; then
+  echo "❌ Gitleaks found secrets — commit blocked"
+  exit 1
+fi
