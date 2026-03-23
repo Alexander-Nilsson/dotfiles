@@ -69,7 +69,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a --color=always $real
 # Define a function that wraps the built-in cd command
 # and then lists the directory contents (including hidden files).
 function z() {
-  builtin z "$@" && ls -a
+    __zoxide_z "$@" && eza -a --color=always --icons
 }
 
 function cd() {
