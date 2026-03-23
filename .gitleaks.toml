@@ -1,0 +1,8 @@
+[allowlist]
+  description = "false positives"
+  regexes = [
+    '''[0-9a-f]{32}'''  # MD5 hashes in anki plugin data.json
+  ]
+  paths = [
+    '''Documents/ObsidianVault2/.obsidian/plugins/obsidian-to-anki-plugin/data.json'''
+  ]
