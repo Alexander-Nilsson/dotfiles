@@ -73,7 +73,7 @@ function z() {
 }
 
 function cd() {
-  builtin cd "$@" && ls -a
+  builtin cd "$@" && eza -a --color=always --icons
 }
 
 alias ls='eza -a --color=always --icons'
