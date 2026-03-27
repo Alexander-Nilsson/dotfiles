@@ -49,12 +49,13 @@
 	},
 
   "custom/bluetooth": {
-    "exec": "bluetoothctl show | grep 'Powered: yes' > /dev/null && (bluetoothctl info | grep 'Connected: yes' > /dev/null && echo ' 󰂱' || echo ' 󰂯') || echo ' 󰂲'",
-    "interval": 5,
-    "tooltip": false,
-    "on-click": "blueman-manager"
+  "exec": "bluetoothctl show | grep 'Powered: yes' > /dev/null && (bluetoothctl info | grep 'Connected: yes' > /dev/null && echo '{\"text\":\" 󰂱\",\"class\":\"connected\"}' || echo '{\"text\":\" 󰂯\",\"class\":\"on\"}') || echo '{\"text\":\" 󰂲\",\"class\":\"off\"}'",
+  "interval": 5,
+  "return-type": "json",
+  "tooltip": false,
+  "on-click": "blueman-manager"
   },
-  
+
   "battery": {
     // Which battery to monitor (often "BAT0" or "BAT1")
     "bat": "BAT0",

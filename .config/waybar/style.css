@@ -67,7 +67,25 @@ window#waybar {
     background-color: alpha(@surface, 0.85);
 }
 
-#custom-bluetooth,
+/* ----- Bluetooth states ----- */
+
+/* Connected → semantic success (keep green like your battery) */
+#custom-bluetooth.connected {
+    color: #2dcc36;  /* same semantic green as battery charging */
+}
+
+/* On but not connected → subtle, slightly dimmed */
+#custom-bluetooth.on {
+    color: alpha(@on_background, 0.7);
+}
+
+/* Off → soft error (not screaming red) */
+#custom-bluetooth.off {
+    color: alpha(@error, 0.7);
+}
+
+
+
 #clock,
 #battery,
 #cpu,
