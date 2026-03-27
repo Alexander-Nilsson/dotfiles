@@ -83,6 +83,8 @@ alias grep='rg --color=auto'
 alias j='z'
 alias ji='z -i'
 
+alias anki='anki-wrapper'
+
 # Set the default editor
 export EDITOR=nvim
 export VISUAL=nvim 
@@ -108,7 +110,6 @@ alias mkdir='mkdir -p'
 alias ps='ps auxf'
 alias ping='ping -c 10'
 alias less='less -R'
-alias apt-get='sudo apt-get'
 alias vi='nvim'
 
 # Change directory aliases
@@ -131,10 +132,14 @@ alias f="find . | grep "
 # invim alias
 alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
 alias invim='nvim $(fzf -m --preview="bat --color=always {}")'
-alias in_vim='nvim $(fzf -m --preview="bat --color=always {}")'
 
-  # abbr for writing out git commit + cursor position  
-  export ABBR_SET_EXPANSION_CURSOR=1
+# Open files by extension
+alias -s {conf,json,jsonc,css,sh,md,txt,lua}=nvim
+alias -s {mp4,mkv,webm,mp3,flac,wav}=mpv
+alias -s {png,jpg,jpeg,webp,gif}=kitty +kitten icat
+
+# abbr for writing out git commit + cursor position  
+export ABBR_SET_EXPANSION_CURSOR=1
 export ABBR_AUTOLOAD=1
 
 export PATH="$HOME/.local/bin:$PATH"
