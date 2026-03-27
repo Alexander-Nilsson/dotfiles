@@ -86,7 +86,6 @@ alias ping='ping -c 10'
 alias less='less -R'
 
 # Change directory aliases
-alias home='cd ~'
 alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -127,13 +126,3 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 eval "$(thefuck --alias)"
-
-# ─────────────────────────────────────────────────────────────
-# OPTIONAL: SESSION LOGGING
-# ─────────────────────────────────────────────────────────────
-if [[ -z "$SCRIPT_LOGGER" ]]; then
-    export SCRIPT_LOGGER=1
-    logfile="$HOME/Documents/logs/$(date +%F).log"
-    mkdir -p "$HOME/Documents/logs"
-    exec script -q -a "$logfile"
-fi
