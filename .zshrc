@@ -8,20 +8,18 @@ source "${ZINIT_HOME}/zinit.zsh"
 # ─────────────────────────────────────────────────────────────
 # CORE (must be early)
 # ─────────────────────────────────────────────────────────────
-autoload -Uz compinit colors
-compinit -C   # cached → fast startup
+autoload -Uz colors
 colors
 
-# History (early = important)
+# History settings
 HISTFILE=~/.zsh_history
 HISTSIZE=5000
 SAVEHIST=5000
-
 setopt appendhistory sharehistory incappendhistory
 setopt hist_ignore_space hist_ignore_all_dups hist_save_no_dups
 setopt hist_find_no_dups HIST_EXPIRE_DUPS_FIRST HIST_REDUCE_BLANKS
 
-# Keybindings (early for responsiveness)
+# Keybindings
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
@@ -29,19 +27,21 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # ─────────────────────────────────────────────────────────────
-# PLUGINS (load order matters)
+# PLUGINS (carefully ordered)
 # ─────────────────────────────────────────────────────────────
 
-# Instant (affects typing)
+# Completions first
+zinit light zsh-users/zsh-completions
+
+# fzf-tab MUST come after zsh-completions
+zinit light Aloxaf/fzf-tab
+
+# Other instant plugins
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-history-substring-search
-
-# Completions + UI (can be lazy)
-zinit light zsh-users/zsh-completions
-zinit light Aloxaf/fzf-tab
 zinit light olets/zsh-abbr
 
-# Syntax highlighting (lazy but safe now)
+# Syntax highlighting (load late)
 zinit wait lucid for \
     zdharma-continuum/fast-syntax-highlighting
 
@@ -53,12 +53,28 @@ zinit wait lucid for \
     OMZP::archlinux
 
 # ─────────────────────────────────────────────────────────────
-# COMPLETION STYLING
+# COMPLETION SETUP + fzf-tab configuration
 # ─────────────────────────────────────────────────────────────
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:*' fzf-preview 'eza -a --color=always $realpath'
+
+# Ensure compinit is available
+autoload -Uz compinit
+
+zinit wait lucid for \
+    atinit'
+        # Initialize completion system (cached for speed)
+        compinit -C
+
+        # Core completion styles
+        zstyle ":completion:*" matcher-list "m:{a-z}={A-Za-z}"
+        zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
+        zstyle ":completion:*" menu no
+
+        # fzf-tab preview settings
+        zstyle ":fzf-tab:complete:*" fzf-preview "eza -a --color=always \$realpath"
+        zstyle ":fzf-tab:complete:cd:*" fzf-preview "eza -a --color=always \$realpath"
+        zstyle ":fzf-tab:complete:__zoxide_z:*" fzf-preview "eza -a --color=always \$realpath"
+    ' \
+    Aloxaf/fzf-tab
 
 # ─────────────────────────────────────────────────────────────
 # NAVIGATION (zoxide + eza)
@@ -75,27 +91,25 @@ alias ls='eza -a --color=always --icons'
 alias j='z'
 alias ji='z -i'
 
-alias anki='anki-wrapper'
+# ─────────────────────────────────────────────────────────────
+# ALIASES
+# ─────────────────────────────────────────────────────────────
+alias vim='nvim'
+alias vi='nvim'
+alias c='clear'
+alias grep='rg --color=auto'
 
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='trash -v'
 alias mkdir='mkdir -p'
-alias ps='ps auxf'
-alias ping='ping -c 10'
-alias less='less -R'
 
-# Change directory aliases
-alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-# Search command line history
-alias h="history | grep "
-
-# Search files in the current folder
-alias f="find . | grep "
+alias h="history | grep"
+alias f="find . | grep"
 
 # FZF file open
 alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
@@ -106,6 +120,7 @@ alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
 alias -s {conf,json,jsonc,css,sh,md,txt,lua}=nvim
 alias -s {mp4,mkv,webm,mp3,flac,wav}=mpv
 alias -s {png,jpg,jpeg,webp,gif}=kitty\ +kitten\ icat
+alias -s pdf=zathura
 
 # ─────────────────────────────────────────────────────────────
 # ENV
@@ -114,10 +129,10 @@ export EDITOR=nvim
 export VISUAL=nvim
 export CLICOLOR=1
 export LS_COLORS="$(vivid generate one-dark)"
-
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
+export ABBR_SET_EXPANSION_CURSOR=1 # ── Enable zsh-abbr cursor placement
 
 # ─────────────────────────────────────────────────────────────
 # TOOLS (load late)
