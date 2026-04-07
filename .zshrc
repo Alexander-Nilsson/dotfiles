@@ -141,3 +141,7 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 eval "$(thefuck --alias)"
+
+export PATH=$PATH:/home/alexander/.spicetify
+export PATH=$PATH:~/.spicetify
+export QTWEBENGINE_CHROMIUM_FLAGS="--disable-gpu"
