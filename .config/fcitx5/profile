@@ -1,18 +1,32 @@
 [Groups/0]
 # Group Name
+Name=sw
+# Layout
+Default Layout=se-nodeadkeys
+# Default Input Method
+DefaultIM=keyboard-se-nodeadkeys
+
+[Groups/0/Items/0]
+# Name
+Name=keyboard-se-nodeadkeys
+# Layout
+Layout=
+
+[Groups/1]
+# Group Name
 Name=Default
 # Layout
 Default Layout=us
 # Default Input Method
 DefaultIM=pinyin
 
-[Groups/0/Items/0]
+[Groups/1/Items/0]
 # Name
 Name=keyboard-us
 # Layout
 Layout=
 
-[Groups/0/Items/1]
+[Groups/1/Items/1]
 # Name
 Name=pinyin
 # Layout
@@ -20,4 +34,5 @@ Layout=
 
 [GroupOrder]
 0=Default
+1=sw
 
