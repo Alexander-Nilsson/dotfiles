@@ -25,3 +25,8 @@ post_hook = "kill -SIGUSR1 $(pgrep -a kitty | awk '{print $1}')"
 input_path = "/home/alexander/.config/matugen/templates/swaync-colors.css"
 output_path = "/home/alexander/.config/swaync/colors.css"
 post_hook = "swaync-client --reload-css"
+
+[templates.tmux]
+input_path = "/home/alexander/.config/matugen/templates/tmux.conf"
+output_path = "/home/alexander/.config/tmux/colors.conf"
+post_hook = "tmux source-file /home/alexander/.config/tmux/tmux.conf"
